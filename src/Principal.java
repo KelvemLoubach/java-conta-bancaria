@@ -1,17 +1,26 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        scanner.useLocale(Locale.US);
+
         ContaTerminal contaTerminal = new ContaTerminal();
 
+        boolean controlLoop = false;
+
+        while(!controlLoop){
+
+        try{
+
         System.out.println("Por favor, digite o número da agência;");
-        String agency = scanner.next();
+        String agency = scanner.nextLine();
         contaTerminal.setAgency(agency);
 
         System.out.println("Por favor, digite seu nome completo;");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         contaTerminal.setClientName(name);
 
         System.out.println("Por favor, digite o número da conta;");
@@ -30,13 +39,20 @@ public class Principal {
         int getNumber = contaTerminal.getNumber();
 
        String message = """
-                        Olá {getName}, obrigado por criar uma conta em nosso banco!
-                        sua agência é {getAgency}, 
-                        conta {getNumber}
-                        seu saldo {getBalance} já está disponível para saque!               
-                        """;
+                        Olá %s, obrigado por criar uma conta em nosso banco!
+                        sua agência é %s, 
+                        conta %d
+                        seu saldo %.2f já está disponível para saque!               
+                        """.formatted(getName,getAgency,getNumber, getBalance );
 
         System.out.println(message);
+        controlLoop = true; 
+
+        }catch(java.util.InputMismatchException erro){
+            System.out.println("Algum dado foi digitado incorretamente!");
+        }
     }
-    
 }
+
+ }
+

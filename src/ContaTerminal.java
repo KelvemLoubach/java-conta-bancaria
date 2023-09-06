@@ -6,19 +6,19 @@ public class ContaTerminal {
      private double balance;
 
      public void setNumber(int number){
-        number = this.number;
+        this.number = number;
      }
     
      public void setAgency(String agency){
-        agency = this.agency;
+        this.agency = agency;
      }
 
      public void setClientName(String clientName){
-        clientName = this.clientName;
+        this.clientName = clientName;
      }
 
      public void setBalance(double balance){
-        balance = this.balance;
+        this.balance = balance;
      }
 
      public int getNumber(){
