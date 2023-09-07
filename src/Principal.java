@@ -59,7 +59,7 @@ public class Principal {
                         System.out.println("Saldo insuficiente para esta operação!");
                     }
 
-                    System.out.println("Seu saldo atual é: " + resultBalance);
+                    System.out.println("Seu saldo atual é: " + resultBalance+"0");
 
                     break;
 
